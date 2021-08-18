@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos</title>
+    <style>
+        *{
+            background-color: aliceblue;
+        }
+        #body{
+            display: flex;
+            justify-content: space-around;
+        }
+        #newside{
+
+        }
+        #allside{
+
+        }
+        #box{
+            outline: dashed;
+            outline-color: forestgreen;
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div id="body">
+        <div id="newside">
+            <h1>New Dojo</h1>
+            <form action="/dojos" method="post">
+                <p>Name:</p>
+                <p><input type="text" name="dname"></p>
+                <input type="submit" value="Create">
+            </form>
+        </div>
+        <div id="allside">
+            <h1>All Dojos</h1>
+            <div id="box">
+                <p>
+                    {% for dojo in dojos %}
+                    <p><a href="http://localhost:5000/dojos/{{dojo['id']}}">{{dojo['name']}}</a></p>
+                    {% endfor %}
+                </p>
+            </div>
+            <a href="http://localhost:5000/ninjas">Add Ninja</a>
+            
+        </div>
+    </div>
+</body>
+</html>

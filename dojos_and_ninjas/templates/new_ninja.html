@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ninja</title>
+    <style>
+        *{
+            background-color: aliceblue;
+        }
+        #container{
+            height: auto;
+            width: auto;
+            margin: auto;
+        }
+        #header{
+            display: flex;
+            justify-content: center;
+        }
+        #body{
+            display: flex;
+            justify-content: center;
+        }
+        #menu{
+            margin-left: 50px;
+        }
+        #fname{
+            margin-left: 10px;
+        }
+        #lname{
+            margin-left: 10px;
+        }
+        #age{
+            margin-left: 54px;
+        }
+        #create{
+            margin-left: 90px;
+        }
+        #home{
+            margin-left: 510px;
+        }
+    </style>
+</head>
+<body id="container">
+    <div id = "header">
+        <h1 id="title">New Ninja</h1>
+    </div>
+    <div id="body">
+        <form action="/ninjas" method="POST">
+            <p>Dojo:  <select id= "menu" name="dojo">
+                {% for do in dojo %}
+                    <option value="{{ do['id' ]}}">{{do['name']}}</option>
+                {% endfor %}
+            </select></p>
+            <p>First Name:  <input id= "fname" type="text" name="fname"></p>
+            <p>Last Name:  <input id="lname" type="text" name="lname"></p>
+            <p>Age:   <input id="age" type="text" name="age"></p>
+            <input id="create" type="submit" value="Create">
+        </form>
+    </div>
+    <a id="home" href="http://localhost:5000/dojos">Home</a>
+    
+</body>
+</html>
